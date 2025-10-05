@@ -3,24 +3,19 @@ name: Cache dependencies
 on:
   push:
     branches:
-      - main          # Trigger on pushes to main branch
-  workflow_dispatch:   # Allow manual trigger
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Cache dependencies
-        id: cache-step
+      - uses: actions/checkout@v4
+      - id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip               # Cache Python pip packages cache
-          key: cache-8a2462e               # Fixed cache key
-          restore-keys: cache-8a2462e      # Restore keys for partial matches
-
+          path: ~/.cache/pip
+          key: cache-8a2462e
+          restore-keys: cache-8a2462e
       - name: prime-cache-8a2462e
         run: echo 'Cache hit: ${{ steps.cache-step.outputs.cache-hit }}'
