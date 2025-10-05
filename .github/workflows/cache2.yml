@@ -3,8 +3,8 @@ name: Cache dependencies
 on:
   push:
     branches:
-      - main            # Trigger on pushes to main branch
-  workflow_dispatch:    # Allow manual trigger
+      - main          # Trigger on pushes to main branch
+  workflow_dispatch:   # Allow manual trigger
 
 jobs:
   build:
@@ -23,4 +23,4 @@ jobs:
           restore-keys: cache-8a2462e      # Restore keys for partial matches
 
       - name: prime-cache-8a2462e
-        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
+        run: echo 'Cache hit: ${{ steps.cache-step.outputs.cache-hit }}'
