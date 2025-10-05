@@ -3,8 +3,8 @@ name: Cache dependencies
 on:
   push:
     branches:
-      - main          # runs on pushes to main branch
-  workflow_dispatch:  # allows manual trigger
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,10 +18,9 @@ jobs:
         id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip                      # example caching pip packages
-          key: cache-8a2462e                      # your fixed cache key
-          restore-keys: |
-            cache-8a2462e
+          path: ~/.cache/pip
+          key: cache-8a2462e
+          restore-keys: cache-8a2462e
 
       - name: prime-cache-8a2462e
         run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
