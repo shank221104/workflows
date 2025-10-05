@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - id: cache-step
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: cache-8a2462e
           restore-keys: cache-8a2462e
+
       - name: prime-cache-8a2462e
-        run: echo 'Cache hit: ${{ steps.cache-step.outputs.cache-hit }}'
+        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
