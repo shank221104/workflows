@@ -1,4 +1,4 @@
-name: Cache dependencies - 23f2003814@ds.study.iitm.ac.in
+name: Caching dependencies - 23f2003814@ds.study.iitm.ac.in
 
 on:
   push:
