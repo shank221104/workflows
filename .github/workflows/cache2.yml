@@ -1,4 +1,4 @@
-name: Cache dependencies
+name: Cache dependencies for tds
 
 on:
   push:
